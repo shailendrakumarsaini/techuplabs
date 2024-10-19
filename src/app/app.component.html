@@ -1,9 +1,8 @@
 <div class="container">
   <div class="d-flex justify-content-between">
-    <h3>List of Pins</h3>
+    <h2>List of Pins</h2>
     <div class="d-flex flex-column ">
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addCustomer">
+      <button (click)="openAddCustomerDialog()" type="button" class="btn btn-primary mb-3 mt-1">
         + Add Customer
       </button>
       <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addPin">
@@ -42,42 +41,3 @@
   </table>
 </div>
 
-<!-- Modal for Create Customer -->
-<div class="modal fade" id="addCustomer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="addCustomerLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="addCustomerLabel">Create Customer</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <app-create-customer></app-create-customer>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal for Create Pin -->
-<div class="modal fade" id="addPin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="addPinLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="addPinLabel">Add Pin</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
-</div>

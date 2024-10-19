@@ -1,0 +1,79 @@
+<div class="container">
+    <form [formGroup]="customerForm" (ngSubmit)="onSubmit(customerForm.value)">
+        <div class="card-body m-4">
+            <div class="form-group row mb-2">
+                <label for="title" class="col-md-4 col-form-label text-md-right"> Title:
+                    <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8">
+                    <input formControlName="title" type="text" class="form-control"
+                        [class.is-invalid]="(customerForm.controls['title'].errors && customerForm.controls['title'].touched)"
+                        id="title" placeholder="xyx">
+                    <div *ngIf="(customerForm.controls['title'].errors && customerForm.controls['title'].touched)"
+                        class="invalid-feedback">
+                        <div *ngIf="(customerForm.controls['title'].hasError('required'))">Title is required field</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label for="email" class="col-md-4 col-form-label text-md-right"> Email:
+                    <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8">
+                    <input formControlName="email" type="email" class="form-control"
+                        [class.is-invalid]="(customerForm.controls['email'].errors && customerForm.controls['title'].touched)"
+                        id="email" placeholder="xyz@gmail.com">
+                    <div *ngIf="(customerForm.controls['email'].errors && customerForm.controls['email'].touched)"
+                        class="invalid-feedback">
+                        <div *ngIf="(customerForm.controls['email'].hasError('required'))">Email is required field</div>
+                        <div *ngIf="(customerForm.controls['email'].hasError('email'))">Please enter valid email</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label for="region" class="col-md-4 col-form-label text-md-right"> Region:
+                    <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8">
+                    <select formControlName="region" class="form-select"
+                        [class.is-invalid]="(customerForm.controls['region'].errors && customerForm.controls['region'].touched)"
+                        id="region">
+                        <option value="" disabled>Please Select Region</option>
+                        <option *ngFor="let region of regionList" [value]="region">{{region}}</option>
+                    </select>
+                    <div *ngIf="(customerForm.controls['region'].errors && customerForm.controls['region'].touched)"
+                        class="invalid-feedback">
+                        <div *ngIf="(customerForm.controls['region'].hasError('required'))">Region is required field
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label for="country" class="col-md-4 col-form-label text-md-right"> Country:
+                    <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8">
+                    <select formControlName="country" class="form-select"
+                        [class.is-invalid]="(customerForm.controls['country'].errors && customerForm.controls['country'].touched)"
+                        id="country">
+                        <option value="" disabled>Please Select Country</option>
+                        <option *ngFor="let country of countryList" [value]="country.countryCode">{{country.country}}
+                        </option>
+                    </select>
+                    <div *ngIf="(customerForm.controls['country'].errors && customerForm.controls['country'].touched)"
+                        class="invalid-feedback">
+                        <div *ngIf="(customerForm.controls['country'].hasError('required'))">Country is required field
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer m-4">
+            <div class="d-flex flex-row justify-content-end">
+                <button type="submit" [disabled]="customerForm.invalid" class="btn btn-primary">Create Customer</button>
+            </div>
+        </div>
+        <!-- <pre>{{ customerForm.value | json }}</pre> -->
+    </form>
+</div>
