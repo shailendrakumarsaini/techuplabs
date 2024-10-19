@@ -35,7 +35,7 @@
                     <span class="text-danger">*</span>
                 </label>
                 <div class="col-md-8">
-                    <select formControlName="region" class="form-select"
+                    <select formControlName="region" class="form-select" (change)="onRegionChange($event)"
                         [class.is-invalid]="(customerForm.controls['region'].errors && customerForm.controls['region'].touched)"
                         id="region">
                         <option value="" disabled>Please Select Region</option>
@@ -53,7 +53,7 @@
                     <span class="text-danger">*</span>
                 </label>
                 <div class="col-md-8">
-                    <select formControlName="country" class="form-select"
+                    <select formControlName="country" class="form-select" 
                         [class.is-invalid]="(customerForm.controls['country'].errors && customerForm.controls['country'].touched)"
                         id="country">
                         <option value="" disabled>Please Select Country</option>
