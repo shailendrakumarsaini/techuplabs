@@ -6,6 +6,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerModule } from './shared/customer/customer.module';
+import { PinModule } from './shared/pin/pin.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CustomerModule } from './shared/customer/customer.module';
     MatDialogModule,
     AppRoutingModule,
     CustomerModule,
+    PinModule
   ],
   providers: [],
   bootstrap: [AppComponent]

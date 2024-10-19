@@ -1,0 +1,53 @@
+<div class="container">
+    <form [formGroup]="pinForm" (ngSubmit)="onSubmit(pinForm.value)">
+        <div class="card-body m-4">
+            <div class="form-group row mb-2">
+                <label for="title" class="col-md-4 col-form-label text-md-right"> Title:
+                    <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8">
+                    <input formControlName="title" type="text" class="form-control"
+                        [class.is-invalid]="(pinForm.controls['title'].errors && pinForm.controls['title'].touched)"
+                        id="title" placeholder="xyx">
+                    <div *ngIf="(pinForm.controls['title'].errors && pinForm.controls['title'].touched)"
+                        class="invalid-feedback">
+                        <div *ngIf="(pinForm.controls['title'].hasError('required'))">Title is required field</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label for="region" class="col-md-4 col-form-label text-md-right"> Collaboration:
+                    <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8">
+                    <ngx-select [items]="collaborators" [formControl]="collaboration" [multiple]="true"
+                        [placeholder]="'Please select collaborator'"></ngx-select>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label class="col-md-4 col-form-label text-md-right"> Privacy:
+                    <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8 end">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" formControlName="privacy" type="radio" name="privacy"
+                            id="private" value="Private">
+                        <label class="form-check-label" for="private">Private</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" formControlName="privacy" type="radio" name="privacy"
+                            id="public" value="Public">
+                        <label class="form-check-label" for="public">Public</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer m-4">
+            <div class="d-flex flex-row justify-content-end">
+                <button type="submit" [disabled]="pinForm.invalid" class="btn btn-primary">Create Pin</button>
+            </div>
+        </div>
+        <!-- <pre>{{ pinForm.value | json }}</pre> -->
+    </form>
+</div>

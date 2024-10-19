@@ -5,7 +5,7 @@
       <button (click)="openAddCustomerDialog()" type="button" class="btn btn-primary mb-3 mt-1">
         + Add Customer
       </button>
-      <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addPin">
+      <button (click)="openAddPinDialog()" type="button" class="btn btn-primary mb-3">
         + Add Pin
       </button>
     </div>
@@ -13,29 +13,23 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Title</th>
+        <th scope="col">Image</th>
+        <th scope="col">Collaboratory</th>
+        <th scope="col">Privacy</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+    <tbody *ngIf="pins && pins.length">
+      <tr *ngFor="let pin of pins">
+        <td>{{pin.title}}</td>
+        <td><div class="box"></div></td>
+        <td><ng-container *ngFor="let i of pin.collaboratory; last as isLast">{{i}} <br *ngIf="!isLast"/></ng-container></td>
+        <td>{{pin.privacy}}</td>
       </tr>
+    </tbody>
+    <tbody *ngIf="!pins.length">
       <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
+        <td colspan="4"><h3 class="text-center">No Data Available</h3></td>
       </tr>
     </tbody>
   </table>
