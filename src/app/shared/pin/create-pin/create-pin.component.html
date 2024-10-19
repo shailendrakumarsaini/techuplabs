@@ -16,6 +16,14 @@
                 </div>
             </div>
             <div class="form-group row mb-2">
+                <label for="region" class="col-md-4 col-form-label text-md-right"> Select Image:
+                    <span class="text-danger">*</span>
+                </label>
+                <div class="col-md-8">
+                    <input type="file" ng2FileSelect [uploader]="uploader" (onFileSelected)="onFileSelected($event)" />
+                </div>
+            </div>
+            <div class="form-group row mb-2">
                 <label for="region" class="col-md-4 col-form-label text-md-right"> Collaboration:
                     <span class="text-danger">*</span>
                 </label>

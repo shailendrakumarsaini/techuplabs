@@ -41,7 +41,8 @@ export class CreateCustomerComponent {
   * The onSubmit function adds form data to the 'customers' property in localStorage and closes a dialog.
   */
   onSubmit(formData){
-    let customers : any[] = JSON.parse(localStorage.getItem('customers'));
+    let parsedCustomers = JSON.parse(localStorage.getItem('customers'));
+    let customers : any[] = parsedCustomers || [];
     customers.push(formData);
     localStorage.setItem('customers', JSON.stringify(customers));
     this.dialogRef.close();

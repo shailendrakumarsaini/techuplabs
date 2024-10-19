@@ -22,7 +22,9 @@
     <tbody *ngIf="pins && pins.length">
       <tr *ngFor="let pin of pins">
         <td>{{pin.title}}</td>
-        <td><div class="box"></div></td>
+        <td>
+          <img class="image" src="data:image/png;base64,{{pin.image}}" alt="" srcset="">
+      </td>
         <td><ng-container *ngFor="let i of pin.collaboratory; last as isLast">{{i}} <br *ngIf="!isLast"/></ng-container></td>
         <td>{{pin.privacy}}</td>
       </tr>
